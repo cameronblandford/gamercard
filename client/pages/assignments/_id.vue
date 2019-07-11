@@ -14,15 +14,13 @@
             class="lead"
           >Finish the assignment and submit it below. Your TA will tell you if you did good or not.</p>
           <div class="upload-area">
-            <div class="custom-file" id="customFile" lang="en">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="exampleInputFile"
-                aria-describedby="fileHelp"
-              />
-              <label class="custom-file-label" for="exampleInputFile">Upload work</label>
-            </div>
+            <b-form-file
+              v-model="files"
+              :state="Boolean(files.length)"
+              multiple
+              placeholder="Browse or drag your files here"
+              drop-placeholder="Drop files here..."
+            ></b-form-file>
           </div>
           <h2>Additional Resources</h2>
           <ul>
@@ -39,6 +37,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      files: []
+    }
+  }
+}
+</script>
+
 
 <style scoped>
 .assignment-title {
